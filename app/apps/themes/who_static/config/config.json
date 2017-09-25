@@ -1,0 +1,14 @@
+{
+  "name" : "Who Static",
+  "description" : "",
+  "thumb" : "images/image.png",
+  "helpers": [
+    "Themes::WhoStatic::MainHelper"
+  ],
+  "hooks": {
+    "on_active": ["who_static_on_install_theme"],
+    "on_inactive": ["who_static_on_uninstall_theme"],
+    "on_theme_settings": ["who_static_settings"]
+    //here all your hooks
+  }
+}

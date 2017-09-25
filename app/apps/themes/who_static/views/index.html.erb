@@ -1,0 +1,39 @@
+<div class="row gutters">
+    <div id="hero-image" class="col col-6 lt-blue row">
+        <div class='hero-text col push-middle'>
+            <h2 class="title"><%= current_theme.the_field('hero_text_title', '') %></h2>
+            <p class="large"><%= current_theme.the_field('hero_text_description', '') %></p>
+        </div>
+    </div>
+    <div id="media-grid" class="col col-6">
+        <div class="row gutters">
+            <div class="center-cropped col col-6" style="background-image: theme_asset_url('images/oafsToC-sq.jpg');"></div>
+            <div class="center-cropped col col-6" style="background-image: theme_asset_url('images/Project_Oracle_seminar_square.jpg');">
+            </div>
+            <div class="center-cropped col col-6" style="background-image: theme_asset_url('images/WeiHsi with Stickies Sq.jpg');">
+            </div>
+            <div class="center-cropped col col-6" style="background-image: theme_asset_url('images/maydayToC-sq.jpg');">
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="section-heading">
+    <h2><%= current_theme.the_field('services_layout_title', 'Our Services') %></h2>
+    <p><%= current_theme.the_field('services_layout_description', '') %></p>
+</div>
+<hr />
+<div class="service-section row gutters">
+    <% current_site.the_posts('services').decorate.each do |service| %>
+        <div class="col col-4">
+
+                <div class="service hover">
+                	<i><span id="large-glyphicon" class="glyphicon <%= service.get_field('service-icon', '') %>" aria-hidden="true"></span></i>
+                    <h3><%= service.the_title %></h3>
+                    <p><%= service.the_excerpt %></p>
+                </div>
+
+        </div>
+    <% end %>
+</div>
