@@ -14,22 +14,21 @@
 </head>
 <body>
 
-    <!-- container -->
-    <div class="container">
-        <!-- header -->
+    <!-- header -->
+    <div data-component="sticky">
         <%= render theme_view('layouts/header') %>
-        <!-- ./header -->
-
-        <div class="wrapper w80" id="max-wrapper">
-            <%= yield %>
-        </div>
-
-        <!-- footer -->
-        <footer class="row">
-        <%= render theme_view('layouts/footer') %>
-        </footer>
-        <!-- ./footer -->
     </div>
-    <!-- ./container -->
+    <!-- ./header -->
+
+    <div class="wrapper w80" id="max-wrapper">
+        <%= yield %>
+    </div>
+
+    <!-- footer -->
+    <footer class="row">
+        <%= render theme_view('layouts/footer') %>
+    </footer>
+    <!-- ./footer -->
+
 </body>
 </html>
