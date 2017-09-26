@@ -1,0 +1,14 @@
+{
+  "name" : "Music Personal",
+  "description" : "",
+  "thumb" : "images/image.png",
+  "helpers": [
+    "Themes::MusicPersonal::MainHelper"
+  ],
+  "hooks": {
+    "on_active": ["music_personal_on_install_theme"],
+    "on_inactive": ["music_personal_on_uninstall_theme"],
+    "on_theme_settings": ["music_personal_settings"]
+    //here all your hooks
+  }
+}

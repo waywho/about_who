@@ -1,0 +1,12 @@
+<header id='main-nav' class='row align-middle'>
+    <nav class='col col-6'>
+        <h1><%= link_to current_site.the_title, current_site.the_url %></h1>
+    </nav>
+    <nav class='col col-6'>
+        <ul class='row auto'>
+            <% cama_menu_parse_items(current_site.nav_menus.find_by_slug('main_menu').children).each do |item| %>
+                <li class='col'><%= link_to item[:label], item[:url] %></li>
+            <% end %>
+        </ul>
+    </nav>
+</header>

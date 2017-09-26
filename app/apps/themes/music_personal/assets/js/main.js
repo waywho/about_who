@@ -27,4 +27,5 @@
 //= require ./Message/Kube.Message
 //= require ./Dropdown/Kube.Dropdown.js
 //= require ./Collapse/Kube.Collapse
+//= require ./jquery.bxslider.min.js
 //= require_tree .

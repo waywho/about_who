@@ -1,0 +1,12 @@
+
+<ul class="hero-slider bxslider">
+	<% current_theme.the_fields('home_hero_image').each do |image| %>
+    	<li><%= image_tag image, class: "hero-image" %></li>
+   	<% end %>
+</ul>
+
+<script>
+	$(document).ready(function(){
+	  $('.hero-slider').bxSlider();
+	});
+</script>

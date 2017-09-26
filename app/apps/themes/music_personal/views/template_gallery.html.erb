@@ -1,0 +1,22 @@
+<h1><%= @post.the_title %></h1>
+
+<br />
+
+<div>
+<p>
+    <%= @post.the_content.html_safe %>
+</p>
+
+        <% @post.the_fields_grouped(['image_title', 'image_description', 'image']).each do |gallery| %>
+                <h5><%= gallery['image_title'].first %></h5>
+                <i><%= gallery['image_description'].first %></i>
+                <div class="row gutters auto">
+                    <% gallery['image'].each do |image| %>
+                        <div class="col col-4">
+                        <%= image_tag image %>
+                        </div>
+                    <% end %>
+                </div>
+        <% end %>
+
+</div>
