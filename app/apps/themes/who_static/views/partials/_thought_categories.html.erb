@@ -1,0 +1,5 @@
+	<% post_type.the_categories.decorate.each do |category| %>
+	    <%= link_to category.the_url do %>
+	        <span class="label outline focus"><%= category.the_title %></span>
+	    <% end %>
+	<% end %>

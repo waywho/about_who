@@ -1,12 +1,15 @@
 <h1>Thoughts</h1>
-Welcome to our section of musings on how to improve the sector. Here you can find how-to articles, think pieces, and news.
 
 <div>
 
-<%= render theme_view('partials/thought_categories'), post_type: @post_type %>
+Select other categories: <%= render theme_view('partials/thought_categories'), post_type: @post_type %>
+<br />
+
+Filtered Category: <span class="label base focus"><%= @category.the_title %></span>
 
 </div>
-<% @posts.decorate.each do |thought| %>
+
+<% @category.the_posts.decorate.each do |thought| %>
     <%= link_to thought.the_url do %>
     <div class="thought hover">
         <h3><%= thought.the_title %></h3>
