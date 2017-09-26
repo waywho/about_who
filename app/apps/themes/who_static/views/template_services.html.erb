@@ -1,0 +1,17 @@
+<h1><%= @post.the_title %></h1>
+
+<br />
+
+<div>
+<p>
+    <%= @post.the_content.html_safe %>
+</p>
+
+    <% current_site.the_posts('services').decorate.each do |service| %>
+        <i><span id="large-glyphicon" class="glyphicon <%= service.get_field('service-icon', '') %>" aria-hidden="true"></span></i>
+            <h3><%= service.the_title %></h3>
+            <p><%= service.the_content.html_safe %></p>
+    <% end %>
+</div>
+
+

@@ -1,0 +1,20 @@
+<h1><%= @post.the_title %></h1>
+
+<br />
+
+<div>
+<p>
+    <%= @post.the_content.html_safe %>
+</p>
+
+    <% @post.the_fields_grouped(['member_name', 'member_role', 'member_biography', 'member_photo']).each do |member| %>
+
+    <h4><%= member['member_name'].first %></h4>
+        <i><%= member['member_role'].first %></i>
+        <br />
+        <br />
+        <p>
+            <%= member['member_biography'].first %>
+        </p>
+    <% end %>
+</div>

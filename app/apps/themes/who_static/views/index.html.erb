@@ -1,19 +1,15 @@
 <div class="row gutters">
     <div id="hero-image" class="col col-6 lt-blue row">
         <div class='hero-text col push-middle'>
-            <h2 class="title"><%= current_theme.the_field('hero_text_title', '') %></h2>
-            <p class="large"><%= current_theme.the_field('hero_text_description', '') %></p>
+            <h2 class="title"><%= current_theme.the_field('home_hero_text_title', '') %></h2>
+            <p class="large"><%= current_theme.the_field('home_hero_text_description', '') %></p>
         </div>
     </div>
     <div id="media-grid" class="col col-6">
         <div class="row gutters">
-            <div class="center-cropped col col-6" style="background-image: theme_asset_url('images/oafsToC-sq.jpg');"></div>
-            <div class="center-cropped col col-6" style="background-image: theme_asset_url('images/Project_Oracle_seminar_square.jpg');">
-            </div>
-            <div class="center-cropped col col-6" style="background-image: theme_asset_url('images/WeiHsi with Stickies Sq.jpg');">
-            </div>
-            <div class="center-cropped col col-6" style="background-image: theme_asset_url('images/maydayToC-sq.jpg');">
-            </div>
+        	<% current_theme.the_fields('home_hero_image').each do |image| %>
+            <div class="center-cropped col col-6" style="background-image: url(<%= image %>);"></div>
+           	<% end %>
         </div>
     </div>
 </div>
