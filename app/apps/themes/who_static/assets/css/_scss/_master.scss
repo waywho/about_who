@@ -121,3 +121,15 @@ nav li {
 #large-glyphicon {
     font-size: 50px;
 }
+
+.glyphicon-eye-open:before {
+  content: "\E105";
+}
+
+.glyphicon-pencil:before {
+  content: "\270f";
+}
+
+.glyphicon-blackboard:before {
+  content: "\e218";
+}

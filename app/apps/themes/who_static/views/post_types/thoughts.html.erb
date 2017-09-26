@@ -1,0 +1,23 @@
+<h1>Thoughts</h1>
+Welcome to our section of musings on how to improve the sector. Here you can find how-to articles, think pieces, and news.
+
+<div>
+
+	<% @post_type.the_categories.decorate.each do |category| %>
+	    <%= link_to category.the_url do %>
+	        <span class="label base focus"><%= category.the_title %></span>
+	    <% end %>
+	<% end %>
+
+</div>
+<% @posts.decorate.each do |thought| %>
+    <%= link_to thought.the_url do %>
+    <div class="thought hover">
+        <h3><%= thought.the_title %></h3>
+        <%= thought.the_excerpt %><br />
+        <% thought.the_categories.decorate.each do |cat| %>
+        <span class="label outline focus"><%= cat.the_title %></span>
+        <% end %>
+    </div>
+    <% end %>
+<% end %>
