@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'camaleon_cms', '>=2.3.7.1'
 
+gem 'figaro'
+
 gem 'draper', '~> 3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
