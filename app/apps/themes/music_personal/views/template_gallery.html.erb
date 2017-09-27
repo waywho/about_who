@@ -10,9 +10,9 @@
         <% @post.the_fields_grouped(['image_title', 'image_description', 'image']).each do |gallery| %>
                 <h5><%= gallery['image_title'].first %></h5>
                 <i><%= gallery['image_description'].first %></i>
-                <div class="row gutters auto gallery-row">
+                <div class="row gutters auto">
                     <% gallery['image'].each do |image| %>
-                        <div class="col col-4">
+                        <div class="col col-4 gallery-row">
                         <%= image_tag image %>
                         </div>
                     <% end %>
