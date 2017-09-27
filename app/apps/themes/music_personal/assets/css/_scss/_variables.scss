@@ -30,9 +30,9 @@ $grid-gutter: 2% !default;
 
 // FONT FAMILY
 // ---------------------------------------------------------------------------
-$text-font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif !default;
+$text-font-family: 'Helvetica Neue', Helvetica, sans-serif !default;
 $monospace-font-family: Consolas, Monaco, 'Courier New', monospace !default;
-$headings-font-family: $text-font-family !default;
+$headings-font-family: 'League Spartan', 'Helvetica Neue', Helvetica, sans-serif !default;
 $buttons-font-family: $text-font-family !default;
 $input-font-family: $text-font-family !default;
 
@@ -42,7 +42,7 @@ $input-font-family: $text-font-family !default;
 
 // Text
 $color-text: #313439 !default;
-$color-headings: #0d0d0e !default;
+$color-headings: #4f4f4f !default;
 
 // Links
 $color-link: #3794de !default;

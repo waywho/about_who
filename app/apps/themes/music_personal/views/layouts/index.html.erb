@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- END META SECTION -->
-
+    <%= favicon_link_tag theme_asset_url("images/wh-favicon.ico") %>
     <%= stylesheet_link_tag theme_asset_path("css/main") %>
     <%= javascript_include_tag theme_asset_path("js/main.js") %>
     <%= raw the_head %>
@@ -15,12 +15,12 @@
 <body>
 
     <!-- header -->
-    <div data-component="sticky">
-        <%= render theme_view('layouts/header') %>
-    </div>
+
+        <%= render theme_view('layouts/sidenav') %>
+
     <!-- ./header -->
 
-    <div class="wrapper w80" id="max-wrapper">
+    <div class="wrapper">
         <% if notice.present? %>
             <p class="message"><%= notice %></p>
             <% end %>
@@ -28,7 +28,9 @@
             <% if alert.present? || flash[:error] %>
             <p class="message error" data-component="message"><%= alert || flash[:error] %></p>
             <% end %>
-        <%= yield %>
+        <div class="w80" id="inner-wrapper">
+            <%= yield %>
+        </div>
     </div>
 
 </body>
