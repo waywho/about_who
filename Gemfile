@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'camaleon_cms', '>=2.3.7.1'
+gem 'camaleon_cms', '>= 2.4.5'
 
 gem 'figaro'
 

@@ -1,0 +1,14 @@
+{
+  "name" : "One Page",
+  "description" : "",
+  "thumb" : "images/image.png",
+  "helpers": [
+    "Themes::OnePage::MainHelper"
+  ],
+  "hooks": {
+    "on_active": ["one_page_on_install_theme"],
+    "on_inactive": ["one_page_on_uninstall_theme"],
+    "on_theme_settings": ["one_page_settings"]
+    //here all your hooks
+  }
+}
