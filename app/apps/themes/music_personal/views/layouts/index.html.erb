@@ -13,14 +13,9 @@
     <%= raw the_head %>
 </head>
 <body>
-
-    <!-- header -->
-
+    <div class="columns section">
         <%= render theme_view('layouts/sidenav') %>
-
-    <!-- ./header -->
-
-    <div class="wrapper">
+        <div class="column is-four-fifths">
         <% if notice.present? %>
             <p class="message"><%= notice %></p>
             <% end %>
@@ -28,10 +23,9 @@
             <% if alert.present? || flash[:error] %>
             <p class="message error" data-component="message"><%= alert || flash[:error] %></p>
             <% end %>
-        <div class="w80" id="inner-wrapper">
+        
             <%= yield %>
         </div>
     </div>
-
 </body>
 </html>

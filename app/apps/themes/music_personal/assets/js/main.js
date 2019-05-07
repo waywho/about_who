@@ -12,20 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ./Core/Kube
-//= require ./Core/Kube.Animation
-//= require ./Core/Kube.Detect
-//= require ./Core/Kube.Formdata
-//= require ./Core/Kube.Plugin
-//= require ./Core/Kube.Response
-//= require ./Core/Kube.Utils
-//= require ./Toggleme/Kube.Toggleme
-//= require ./Tabs/Kube.Tabs
-//= require ./Sticky/Kube.Sticky
-//= require ./Offcanvas/Kube.Offcanvas
-//= require ./Modal/Kube.Modal
-//= require ./Message/Kube.Message
-//= require ./Dropdown/Kube.Dropdown.js
-//= require ./Collapse/Kube.Collapse
-//= require ./jquery.bxslider.min.js
+//= require jquery-ui/effect.all
 //= require_tree .

@@ -1,12 +1,38 @@
-
-<ul class="hero-slider bxslider">
-	<% current_theme.the_fields('home_hero_image').each do |image| %>
-    	<li><%= image_tag image, class: "hero-image" %></li>
-   	<% end %>
-</ul>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+    	<button id="slider-trigger">slider</button>
+    	<ul class="hero-slider" id="hero-slider">
+			<% current_theme.the_fields('home_hero_image').each_with_index do |image, index| %>
+		    	<li class="hero-images" id="hero-<%= index %>"><%= image_tag image, class: "hero-image is-invisible", id: "image-#{index}" %></li>
+		   	<% end %>
+		</ul>
+    </div>
+  </div>
+</section>
 
 <script>
-	$(document).ready(function(){
-	  $('.hero-slider').bxSlider();
-	});
+	$(document).ready(function() {
+		click_index = 1;
+		count = $('.hero-images').length;
+		$("#image-0").removeClass("is-invisible");
+		last_index = 0;
+		$("#hero-slider").click(function() {
+			// console.log("click_index", click_index)
+			// console.log("last index", last_index)
+			$("#image-"+click_index).removeClass("is-invisible");
+			$("#hero-"+click_index).effect("slide", 'left', 1000);
+			$("#image-"+last_index).addClass("is-invisible");
+
+			if (click_index === count -1) {
+				click_index = 0
+				last_index = count - 1;
+			} else {
+				last_index = click_index
+				click_index += 1
+
+			}
+		})
+	})
+
 </script>

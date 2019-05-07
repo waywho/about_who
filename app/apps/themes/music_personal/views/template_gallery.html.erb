@@ -1,22 +1,52 @@
-<h1><%= @post.the_title %></h1>
+<h1 class="title is-1"><%= @post.the_title %></h1>
 
-<br />
+<div>    
+    <% @post.the_fields_grouped(['image_title', 'image_description', 'image']).each_with_index do |gallery, gallery_index| %>
+        <span><%= gallery['image_title'].first %></span>
+        <i><%= gallery['image_description'].first %></i>
+        
+        <div class="columns">
 
-<div>
-<p>
-    <%= @post.the_content.html_safe %>
-</p>
-
-        <% @post.the_fields_grouped(['image_title', 'image_description', 'image']).each do |gallery| %>
-                <h5><%= gallery['image_title'].first %></h5>
-                <i><%= gallery['image_description'].first %></i>
-                <div class="row gutters auto">
-                    <% gallery['image'].each do |image| %>
-                        <div class="col col-4">
-                        <%= image_tag image %>
+            <% gallery['image'].each_with_index do |image, index| %>
+                <div class="column is-3">
+                        <div class="image is-square image-modal-trigger" id="image-<%= gallery_index %>_<%= index %>">
+                            <%= image_tag image %>
                         </div>
-                    <% end %>
                 </div>
-        <% end %>
+            <% end %>
+        </div>
+       
+    <% end %>
 
 </div>
+
+<div class="modal" id="image-modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p class="image" id="image-container">
+    </p>
+  </div>
+  <button class="modal-close is-large" id="modal-closer" aria-label="close"></button>
+</div>
+
+<script>
+$(document).ready(function() {
+    $(".image-modal-trigger").click(function() {
+        id = this.id
+        $("#image-modal").addClass("is-active");
+        $("#image-container").append($("#"+id).html())
+    })
+
+    $("#modal-closer").click(function() {
+        $("#image-modal").removeClass("is-active");
+        $("#image-container").empty();
+    })
+
+    $(".modal-background").click(function() {
+        $("#image-modal").removeClass("is-active");
+        $("#image-container").empty();
+    })
+
+})
+
+</script>
