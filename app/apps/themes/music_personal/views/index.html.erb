@@ -1,10 +1,9 @@
 <section class="hero">
   <div class="hero-body">
     <div class="container">
-    	<button id="slider-trigger">slider</button>
     	<ul class="hero-slider" id="hero-slider">
 			<% current_theme.the_fields('home_hero_image').each_with_index do |image, index| %>
-		    	<li class="hero-images" id="hero-<%= index %>"><%= image_tag image, class: "hero-image is-invisible", id: "image-#{index}" %></li>
+		    	<li class="hero-images" id="hero-<%= index %>" style='background-image: url(<%= image %>)'></li>
 		   	<% end %>
 		</ul>
     </div>
@@ -12,17 +11,40 @@
 </section>
 
 <script>
+	function change_picture(c_index, l_index, count) {
+			// console.log("call")
+        	// $("#hero-" + c_index).removeClass("is-invisible");
+        	$("#hero-" + l_index).hide("fade", "swing", 1000);
+			$("#hero-" + c_index).effect("slide", ['left', 'swing'], 2000);
+			// $("#hero-" + l_index).addClass("is-invisible");
+
+			if (c_index === count -1) {
+				c_index = 0
+				l_index = count - 1;
+			} else {
+				l_index = c_index
+				c_index += 1
+
+			}
+			setTimeout(change_picture, 6000, c_index, l_index, count)
+    	}
 	$(document).ready(function() {
-		click_index = 1;
-		count = $('.hero-images').length;
-		$("#image-0").removeClass("is-invisible");
-		last_index = 0;
+		var click_index = 1;
+		var count = $('.hero-images').length;
+		var last_index = 0;
+
+		change_picture(click_index, last_index, count)
+    	// setTimeout(change_picture, 5000, click_index, last_index, count)
+
+		// $("#image-0").removeClass("is-invisible");
+
 		$("#hero-slider").click(function() {
 			// console.log("click_index", click_index)
 			// console.log("last index", last_index)
-			$("#image-"+click_index).removeClass("is-invisible");
-			$("#hero-"+click_index).effect("slide", 'left', 1000);
-			$("#image-"+last_index).addClass("is-invisible");
+			$("#hero-"+click_index).removeClass("is-invisible");
+			$("#hero-" + last_index).hide("fade", "swing", 1000);
+			$("#hero-"+click_index).effect("slide", ['left', 'swing'], 2000);
+			// $("#hero-"+last_index).addClass("is-invisible");
 
 			if (click_index === count -1) {
 				click_index = 0

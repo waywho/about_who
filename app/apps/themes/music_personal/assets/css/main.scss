@@ -67,8 +67,20 @@
   cursor: pointer;
 }
 
+.hero-slider {
+  position: relative;
+}
+
 .hero-images {
-  position: absolute;
+  position: absolute !important;
   left: 0px;
   top: 0px;
+  width: 80%;
+  height: 500px;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
