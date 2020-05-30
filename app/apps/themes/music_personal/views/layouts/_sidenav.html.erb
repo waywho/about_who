@@ -1,13 +1,11 @@
-<header id='main-nav'>
-    <nav>
-        <ul>
-            <li class="logo-font row align-right"><%= link_to current_site.the_title, current_site.the_url %></li>
-            <li class="row align-right"><%= current_theme.get_option('subtitle') %></li>
-            <br />
-
-            <% cama_menu_parse_items(current_site.nav_menus.find_by_slug('main_menu').children).each do |item| %>
-                <li class="row align-right nav-item"><%= link_to item[:label], item[:url] %></li>
-            <% end %>
-        </ul>
-    </nav>
-</header>
+<aside class="column menu is-one-fifth">
+  <span class="logo-font menu-label">
+    <%= link_to current_site.the_title, current_site.the_url %>
+  </span><br />
+  <h3 class="subtitle is-4"><%= current_theme.get_option('subtitle') %></h3>
+  <ul class="menu-list">
+    <% cama_menu_parse_items(current_site.nav_menus.find_by_slug('main_menu').children).each do |item| %>
+        <li class="row align-right nav-item"><%= link_to item[:label], item[:url] %></li>
+    <% end %>
+  </ul>
+</aside>

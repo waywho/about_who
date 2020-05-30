@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META SECTION -->
+    <title><%= current_site.the_title %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- END META SECTION -->
+
+    <%= stylesheet_link_tag theme_asset_path("css/main") %>
+    <%= javascript_include_tag theme_asset_path("js/main.js") %>
+    <%= raw the_head %>
+</head>
+<body>
+
+   
+        <!-- header -->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a id="logo" class="navbar-item" href="<%= current_site.the_url %>"><%= image_tag current_site.the_logo, class: "img-responsive" %></a>
+                
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar-main">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbar-main" class="navbar-menu">
+                
+                <%= raw draw_menu({menu_slug: 'main_menu', container_class: 'navbar-start', item_class: 'navbar-item'}) %>
+            </div>
+        </nav>
+        <!-- ./header -->
+
+         <!-- container -->
+    <div class="container">
+
+        <div class="content">
+            <%= yield %>
+        </div>
+
+        <!-- footer -->
+        <footer>
+
+        </footer>
+        <!-- ./footer -->
+    </div>
+    <!-- ./container -->
+</body>
+</html>

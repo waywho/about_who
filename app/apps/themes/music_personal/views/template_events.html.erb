@@ -1,0 +1,18 @@
+<h1 class="title is-1"><%= @post.the_title %></h1>
+
+<br />
+
+<div>
+<p>
+    <%= @post.the_content.html_safe %>
+</p>
+
+        <% @post.the_fields_grouped(['image', 'description', 'date']).each do |event| %>
+                <div class="row gutters auto">
+                    <h5><%= event['image'].first %></h5>
+                    <i><%= event['description'].first %></i>
+                    <p><%= event['description'].first %></p>
+                </div>
+        <% end %>
+
+</div>

@@ -1,12 +1,60 @@
-
-<ul class="hero-slider bxslider">
-	<% current_theme.the_fields('home_hero_image').each do |image| %>
-    	<li><%= image_tag image, class: "hero-image" %></li>
-   	<% end %>
-</ul>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+    	<ul class="hero-slider" id="hero-slider">
+			<% current_theme.the_fields('home_hero_image').each_with_index do |image, index| %>
+		    	<li class="hero-images" id="hero-<%= index %>" style='background-image: url(<%= image %>)'></li>
+		   	<% end %>
+		</ul>
+    </div>
+  </div>
+</section>
 
 <script>
-	$(document).ready(function(){
-	  $('.hero-slider').bxSlider();
-	});
+	function change_picture(c_index, l_index, count) {
+			// console.log("call")
+        	// $("#hero-" + c_index).removeClass("is-invisible");
+        	$("#hero-" + l_index).hide("fade", "swing", 1000);
+			$("#hero-" + c_index).effect("slide", ['left', 'swing'], 2000);
+			// $("#hero-" + l_index).addClass("is-invisible");
+
+			if (c_index === count -1) {
+				c_index = 0
+				l_index = count - 1;
+			} else {
+				l_index = c_index
+				c_index += 1
+
+			}
+			setTimeout(change_picture, 6000, c_index, l_index, count)
+    	}
+	$(document).ready(function() {
+		var click_index = 1;
+		var count = $('.hero-images').length;
+		var last_index = 0;
+
+		change_picture(click_index, last_index, count)
+    	// setTimeout(change_picture, 5000, click_index, last_index, count)
+
+		// $("#image-0").removeClass("is-invisible");
+
+		$("#hero-slider").click(function() {
+			// console.log("click_index", click_index)
+			// console.log("last index", last_index)
+			$("#hero-"+click_index).removeClass("is-invisible");
+			$("#hero-" + last_index).hide("fade", "swing", 1000);
+			$("#hero-"+click_index).effect("slide", ['left', 'swing'], 2000);
+			// $("#hero-"+last_index).addClass("is-invisible");
+
+			if (click_index === count -1) {
+				click_index = 0
+				last_index = count - 1;
+			} else {
+				last_index = click_index
+				click_index += 1
+
+			}
+		})
+	})
+
 </script>
